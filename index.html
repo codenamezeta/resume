@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Zeta, Academic Tutor</title>
+    <style>
+      :root {
+        --primary-color: #333;
+        --secondary-color: #666;
+        --accent-color: #007777;
+        --bg-color: #e0e0e0;
+        --container-bg: #ffffff;
+        --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--bg-color);
+        color: var(--primary-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .resume-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--container-bg);
+        padding: 60px 80px;
+        box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.25);
+        position: relative;
+      }
+
+      /* ========================================
+         CONTROL PANEL (UPDATED)
+         ======================================== */
+      .control-panel {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      /* Unified style for both <button> and <a> tags */
+      .btn {
+        padding: 12px 12px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-family: var(--font-main);
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centers text in the link */
+        gap: 8px;
+        text-decoration: none; /* Removes underline from the link */
+        font-size: 0.9em;
+        width: 182px; /* Fixed width so they match perfectly */
+        box-sizing: border-box;
+      }
+
+      .btn:hover {
+        background-color: #555;
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn-download {
+        background-color: var(--accent-color);
+      }
+
+      .btn-download:hover {
+        background-color: #005555;
+      }
+
+      /* Header Section */
+      header {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #077;
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+      }
+
+      .job-title {
+        font-size: 1.2em;
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+      }
+
+      .contact-info {
+        font-size: 0.9em;
+        color: var(--secondary-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        span {
+          margin: 0;
+          padding: 0;
+        }
+        a {
+          color: var(--secondary-color);
+          text-decoration: none;
+        }
+      }
+
+      /* Section Styling */
+      section {
+        margin-bottom: 25px;
+      }
+
+      h2 {
+        font-size: 1.3em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+        color: var(--primary-color);
+      }
+
+      h4 {
+        margin: 0 0 10px 0;
+        font-size: 0.95em;
+        color: var(--secondary-color);
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      .date {
+        float: right;
+        font-weight: bold;
+        color: var(--accent-color);
+        font-size: 0.9em;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      /* Skills Table / Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+      }
+
+      .skill-item {
+        background: #f9f9f9;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        border-left: 3px solid var(--accent-color);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* References Grid */
+      .references-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 10px;
+      }
+
+      .reference-card {
+        background: #fcfcfc;
+        padding: 12px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .reference-card h3 {
+        font-size: 1em;
+        margin-bottom: 2px;
+      }
+
+      .reference-role {
+        font-size: 0.8em;
+        color: var(--secondary-color);
+        display: block;
+        margin-bottom: 6px;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .reference-email {
+        font-size: 0.9em;
+        color: var(--accent-color);
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      /* Links Section */
+      .links-list {
+        display: flex;
+        gap: 50px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .links-list a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .print-url {
+        display: none;
+      }
+
+      /* ========================================
+         PRINT SPECIFIC STYLES 
+         ======================================== */
+      @media print {
+        @page {
+          margin: 0.5in;
+          size: auto;
+        }
+
+        /* HIDE THE BUTTONS WHEN PRINTING */
+        .control-panel {
+          display: none !important;
+        }
+
+        body {
+          background-color: white;
+          padding: 0;
+          margin: 0;
+        }
+
+        .resume-container {
+          box-shadow: none;
+          max-width: 100%;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+
+        .job,
+        .reference-card,
+        section {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .job-title {
+          font-size: 1.2em;
+          margin-bottom: 8px;
+        }
+
+        .contact-info {
+          font-size: 0.7em;
+          justify-content: space-between;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--accent-color);
+        }
+
+        /* Show the text URLs in print */
+        .print-url {
+          display: block;
+          font-weight: normal;
+          font-size: 0.85em;
+          color: #555;
+          margin-top: 2px;
+        }
+
+        /* Stack the links vertically for print */
+        .links-list {
+          display: block !important;
+        }
+
+        .links-list li {
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 600px) {
+        .resume-container {
+          padding: 30px;
+        }
+
+        .control-panel {
+          top: auto;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .date {
+          float: none;
+          display: block;
+          margin-bottom: 5px;
+        }
+        .contact-info {
+          font-size: 0.7em;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .links-list {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="control-panel">
+      <button class="btn" onclick="window.print()">🖨️ Print</button>
+
+      <a
+        href="Michael_Zeta-Academic_Tutor.pdf"
+        class="btn btn-download"
+        download
+      >
+        ⬇️ Download PDF
+      </a>
+    </div>
+
+    <main class="resume-container">
+      <header>
+        <img
+          src="michael-zeta-avatar-01.jpg"
+          alt="Michael Zeta"
+          class="profile-photo"
+        />
+
+        <div class="header-content">
+          <h1>Michael Zeta</h1>
+          <span class="job-title">Academic Tutor</span>
+
+          <div class="contact-info">
+            <span
+              ><a href="tel:+19516621120" target="_blank"
+                >(951) 662-1120</a
+              ></span
+            >
+            <span
+              ><a href="mailto:michael@a2zeta.com" target="_blank"
+                >michael@a2zeta.com</a
+              ></span
+            >
+            <span>7200 Cumberland Pl, Rancho Cucamonga, CA 91739</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>
+          High-achieving Chaffey College student (3.9 GPA) with over 12 years of
+          professional teaching experience. Expert in designing engaging
+          learning pathways for diverse students, from one-on-one music
+          instruction to small group workshops. Combines strong academic mastery
+          in Business, Math, and Music with technical expertise in web
+          development to provide comprehensive instructional support. Proven
+          ability to mentor adult learners, adapt curriculums to different
+          learning styles, and foster a supportive educational environment.
+        </p>
+      </section>
+
+      <section class="education">
+        <h2>Education</h2>
+
+        <div class="job">
+          <span class="date">Expected: June, 2027</span>
+          <h3>Chaffey College, Rancho Cucamonga, CA</h3>
+          <h4>
+            Business Administration with Computer Information Systems Emphasis
+          </h4>
+          <ul>
+            <li><strong>Cumulative GPA:</strong> 3.943</li>
+            <li>
+              <strong>Relevant Coursework (Grade: A/A+):</strong> Financial
+              Accounting, Calculus I, Adv. Composition & Critical Thinking,
+              Business Communication, Principles of Macroeconomics, Introduction
+              to Computer Programming.
+            </li>
+            <li>
+              <strong>Current Studies:</strong> Computer Programming, Managerial
+              Accounting, Astronomy, and Microeconomics.
+            </li>
+            <li>
+              <strong>Leadership:</strong> Vice President of the Chaffey
+              Recording Arts Club; PTK Honors Society Member.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">2011 </span>
+          <h3>Miracosta College, Oceanside, CA</h3>
+          <h4>Certification in Audio Engineering</h4>
+          <ul>
+            <li>
+              Focus on recording arts, mixing consoles, and live sound
+              reinforcement.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Employment History</h2>
+
+        <div class="job">
+          <span class="date">MAR 2016 – Sep 2024</span>
+          <h3>Music Instructor (Lead)</h3>
+          <h4>Rockstars of Tomorrow, La Verne, CA</h4>
+          <ul>
+            <li>
+              Delivered over 10,000 hours of personalized instruction in music
+              theory and performance to a diverse student body ranging from
+              children to adults.
+            </li>
+            <li>
+              Developed and adapted learning curriculums based on individual
+              student assessment data, accommodating various learning styles and
+              special needs.
+            </li>
+            <li>
+              Mentored junior instructors and collaborated with management to
+              enhance the school's instructional quality and student retention
+              strategies.
+            </li>
+            <li>
+              Facilitated peer-learning environments by organizing and directing
+              student band workshops and group rehearsals.
+            </li>
+            <li>
+              Oversaw production elements for student showcases and live events,
+              ensuring high-quality audio and technical execution.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">JUN 2013 – PRESENT</span>
+          <h3>Freelance Web Developer & Technology Consultant</h3>
+          <h4>A2Zeta Creative Design, Rancho Cucamonga, CA</h4>
+          <ul>
+            <li>
+              Provide technical instruction and support to clients on using
+              Content Management Systems (CMS) and digital tools.
+            </li>
+            <li>
+              Apply UX/UI principles to create accessible, user-friendly digital
+              environments, ensuring compatibility for users with diverse
+              technological proficiencies.
+            </li>
+            <li>
+              Manage complex projects using Agile methodologies, demonstrating
+              strong organizational skills and the ability to meet strict
+              deadlines.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">JAN 2020 – PRESENT</span>
+          <h3>Music Producer & Songwriter</h3>
+          <h4>The Second Messenger, Rancho Cucamonga, CA</h4>
+          <ul>
+            <li>
+              Manage end-to-end production lifecycles for multimedia projects,
+              utilizing ClickUp for resource allocation and progress tracking.
+            </li>
+            <li>
+              Collaborate with diverse artists to translate creative visions
+              into finished products, requiring high-level communication and
+              interpersonal skills.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="skills">
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-item">Instructional Support</div>
+          <div class="skill-item">Curriculum Development</div>
+          <div class="skill-item">Public Speaking</div>
+          <div class="skill-item">Music Theory</div>
+          <div class="skill-item">Calculus & Math Tutoring</div>
+          <div class="skill-item">Economics & Business</div>
+          <div class="skill-item">Computer Literacy</div>
+          <div class="skill-item">Spanish</div>
+          <div class="skill-item">Project Management</div>
+          <div class="skill-item">Web Development</div>
+          <div class="skill-item">Live Sound Mixing</div>
+          <div class="skill-item">Audio Engineering</div>
+        </div>
+      </section>
+
+      <section class="references">
+        <h2>References</h2>
+        <div class="references-grid">
+          <div class="reference-card">
+            <h3>Anthony Lauro</h3>
+            <span class="reference-role"
+              >Music Theory Professor - Chaffey College</span
+            >
+            <a href="mailto:anthony.lauro@chaffey.edu" class="reference-email"
+              >anthony.lauro@chaffey.edu</a
+            >
+          </div>
+          <div class="reference-card">
+            <h3>Garrett Kenehan</h3>
+            <span class="reference-role"
+              >Recording Arts Professor - Chaffey College</span
+            >
+            <a href="mailto:garrett.kenehan@chaffey.edu" class="reference-email"
+              >garrett.kenehan@chaffey.edu</a
+            >
+          </div>
+          <div class="reference-card">
+            <h3>Sheila Malone</h3>
+            <span class="reference-role"
+              >Theatre Arts Professor - Chaffey College</span
+            >
+            <a href="mailto:sheila.malone@chaffey.edu" class="reference-email"
+              >sheila.malone@chaffey.edu</a
+            >
+          </div>
+          <div class="reference-card">
+            <h3>Robert Gonzales</h3>
+            <span class="reference-role">Owner - Rockstars of Tomorrow</span>
+            <a
+              href="mailto:robert@rockstarsoftomorrow.com"
+              class="reference-email"
+              >robert@rockstarsoftomorrow.com</a
+            >
+          </div>
+          <div class="reference-card">
+            <h3>Abigale Lynn</h3>
+            <span class="reference-role">English Major - Chaffey College</span>
+            <a
+              href="mailto:alynn0094@panther.chaffey.edu"
+              class="reference-email"
+              >alynn0094@panther.chaffey.edu</a
+            >
+          </div>
+          <div class="reference-card">
+            <h3>Lindsey Perrott</h3>
+            <span class="reference-role"
+              >Theater Student - Chaffey College</span
+            >
+            <a
+              href="mailto:lperrott9470@panther.chaffey.edu"
+              class="reference-email"
+              >lperrott9470@panther.chaffey.edu</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="links">
+        <h2>Links</h2>
+        <ul class="links-list">
+          <li>
+            <a href="https://a2zeta.com">Web Design Portfolio</a>
+            <span class="print-url">a2zeta.com</span>
+          </li>
+          <li>
+            <a href="https://thesecondmessenger.com">Music Portfolio</a>
+            <span class="print-url">thesecondmessenger.com</span>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/codenamezeta/">LinkedIn</a>
+            <span class="print-url">linkedin.com/in/codenamezeta</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

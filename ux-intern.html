@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Zeta - Resume</title>
+    <style>
+      :root {
+        --primary-color: #333;
+        --secondary-color: #666;
+        --accent-color: #0056b3;
+        --bg-color: #f4f4f4;
+        --container-bg: #ffffff;
+        --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--bg-color);
+        color: var(--primary-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .resume-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--container-bg);
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Header Section */
+      header {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #eee;
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .job-title {
+        font-size: 1.2em;
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+      }
+
+      .contact-info {
+        font-size: 0.9em;
+        color: var(--secondary-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      /* Section Styling */
+      section {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        font-size: 1.3em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+        color: var(--primary-color);
+      }
+
+      h4 {
+        margin: 0 0 10px 0;
+        font-size: 0.95em;
+        color: var(--secondary-color);
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      .date {
+        float: right;
+        font-weight: bold;
+        color: var(--accent-color);
+        font-size: 0.9em;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      /* Skills Table / Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+      }
+
+      .skill-item {
+        background: #f9f9f9;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 0.95em;
+        border-left: 3px solid var(--accent-color);
+      }
+
+      /* Links Section */
+      .links-list {
+        display: flex;
+        gap: 20px;
+      }
+
+      .links-list a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .links-list a:hover {
+        text-decoration: underline;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .date {
+          float: none;
+          display: block;
+          margin-bottom: 5px;
+        }
+        .contact-info {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <header>
+        <img
+          src="/michael-zeta-avatar-01.jpg"
+          alt="Michael Zeta Profile"
+          class="profile-photo"
+        />
+
+        <div class="header-content">
+          <h1>Michael Zeta</h1>
+          <span class="job-title">UX Design Intern </span>
+
+          <div class="contact-info">
+            <span
+              >7200 Cumberland Pl, Rancho Cucamonga, United States, 91739
+            </span>
+            <span>michael@a2zeta.com </span>
+            <span>(951) 662-1120 </span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>
+          Driven UX Design Intern with extensive web development experience,
+          specializing in user-centric design and digital innovation. Proficient
+          in creating seamless user interfaces and enhancing user engagement
+          through detailed research and iterative design processes. Committed to
+          shaping intuitive and impactful digital products that enhance user
+          experiences.
+        </p>
+      </section>
+
+      <section class="experience">
+        <h2>Employment History</h2>
+
+        <div class="job">
+          <span class="date">MAR 2016 – PRESENT </span>
+          <h3>Creative Director & Web Developer</h3>
+          <h4>Rockstars of Tomorrow, La Verne, CA</h4>
+          <ul>
+            <li>
+              Designed, developed, and implemented a responsive company website
+              using Next.js and deployed on Netlify, enhancing online presence
+              and resource accessibility.
+            </li>
+            <li>
+              Designed visually appealing graphics, icons, and banners for
+              website and promotional materials.
+            </li>
+            <li>
+              Collaborated with writers, designers, directors, editors, and
+              other creatives throughout the production process for various
+              digital projects.
+            </li>
+            <li>
+              Led brainstorming sessions to generate innovative ideas for new
+              projects and digital campaigns.
+            </li>
+            <li>
+              Implemented project management tools and software to streamline
+              creative and technical workflows.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">JUN 2013 – PRESENT </span>
+          <h3>Independent Business Owner / Freelance Web Developer</h3>
+          <h4>A2Zeta Creative Design, Rancho Cucamonga, CA</h4>
+          <ul>
+            <li>
+              Design, develop, code, and maintain responsive websites and web
+              applications for diverse clients, primarily focusing on creative
+              industries including music and technology.
+            </li>
+            <li>
+              Provide end-to-end services including UX/UI design, website
+              hosting, SEO strategy, and social media integration consulting.
+            </li>
+            <li>
+              Built and manage a portfolio of satisfied clients through
+              effective communication, project management, and delivering
+              high-quality web solutions.
+            </li>
+            <li>
+              Demonstrated strong business acumen and financial management
+              skills in operating a freelance business.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">JAN 2020 – PRESENT </span>
+          <h3>Music Producer/Songwriter</h3>
+          <h4>The Second Messenger, Rancho Cucamonga, CA</h4>
+          <ul>
+            <li>
+              Managed the end-to-end production lifecycle for over 20 songs and
+              30 videos, encompassing composition, recording, mixing, mastering,
+              and digital distribution.
+            </li>
+            <li>
+              Utilized ClickUp project management software to track progress,
+              manage documentation, assign tasks, and monitor resource
+              allocation across multiple simultaneous projects.
+            </li>
+            <li>
+              Collaborated effectively with songwriters, artists, and producers,
+              translating creative visions into finished digital products.
+            </li>
+            <li>
+              Applied knowledge of digital audio workstations and audio hardware
+              for content creation.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">JUN 2021 – JAN 2022 </span>
+          <h3>Freelance Information Technology Consultant</h3>
+          <h4>Valiant Eagle, INC., Los Angeles, CA</h4>
+          <ul>
+            <li>
+              Planned, designed, and led the development of a network of 20+
+              websites and web applications, contributing to the company's
+              digital infrastructure.
+            </li>
+            <li>
+              Followed Agile methodologies to ensure regular delivery of
+              projects and features.
+            </li>
+            <li>
+              Provided technical leadership, support, and motivation to team
+              members involved in web projects.
+            </li>
+            <li>
+              Designed and advised on systems for cloning and deploying
+              e-commerce sites efficiently.
+            </li>
+            <li>
+              Contributed to technical aspects of marketing and press events.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">User Experience Design</div>
+          <div class="skill-item">Project Management</div>
+          <div class="skill-item">Responsive Design</div>
+          <div class="skill-item">SEO Strategy</div>
+          <div class="skill-item">Front-end Development</div>
+          <div class="skill-item">Agile Methodologies</div>
+          <div class="skill-item">Content Management Systems</div>
+          <div class="skill-item">Git</div>
+          <div class="skill-item">React</div>
+          <div class="skill-item">Next.js</div>
+          <div class="skill-item">TypeScript</div>
+        </div>
+      </section>
+
+      <section class="education">
+        <h2>Education</h2>
+
+        <div class="job">
+          <span class="date">Expected: June, 2027 </span>
+          <h3>Chaffey College, Rancho Cucamonga, CA</h3>
+          <h4>
+            Business Administration with Computer Information Systems Emphasis
+          </h4>
+          <ul>
+            <li>GPA: 3.89</li>
+            <li>PTK Honors Society</li>
+            <li>Vice President of the Chaffey Recording Arts Club</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">2011 </span>
+          <h3>Miracosta College, Oceanside, CA</h3>
+          <h4>Certification in Audio Engineering</h4>
+        </div>
+      </section>
+
+      <section class="links">
+        <h2>Links</h2>
+        <div class="links-list">
+          <a href="#">Portfolio Website </a>
+          <a href="#">GitHub </a>
+          <a href="#">Linkedin </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
