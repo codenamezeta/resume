@@ -3,24 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michael Zeta, Project Management Intern Candidate</title>
+    <title>Michael Zeta, Full-Stack Web Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --primary-color: #333;
-        --secondary-color: #666;
-        --accent-color: #007777;
-        --bg-color: #e0e0e0;
-        --container-bg: #ffffff;
-        --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --bg-color: #0f172a;
+        --container-bg: rgba(30, 41, 59, 0.7);
+        --primary-color: #f1f5f9;
+        --secondary-color: #94a3b8;
+        --accent-color: #38f8f8;
+        --accent-gradient: linear-gradient(135deg, #38f8f8, #818cf8);
+        --font-main: 'Inter', sans-serif;
+        --font-heading: 'Outfit', sans-serif;
+        --blur-bg: blur(16px);
       }
 
       body {
         font-family: var(--font-main);
         background-color: var(--bg-color);
+        background-image:
+          radial-gradient(
+            circle at 15% 50%,
+            rgba(56, 189, 248, 0.08),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(129, 140, 248, 0.08),
+            transparent 25%
+          );
         color: var(--primary-color);
-        line-height: 1.6;
+        line-height: 1.7;
         margin: 0;
-        padding: 20px;
+        padding: 40px 20px;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -28,83 +49,105 @@
       .resume-container {
         max-width: 900px;
         margin: 0 auto;
-        background-color: var(--container-bg);
+        background: var(--container-bg);
+        backdrop-filter: var(--blur-bg);
+        -webkit-backdrop-filter: var(--blur-bg);
         padding: 60px 80px;
-        box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.25);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         position: relative;
+        overflow: hidden;
       }
 
-      /* ========================================
-         CONTROL PANEL
-         ======================================== */
+      /* Glass UI glow effect inside container */
+      .resume-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--accent-gradient);
+      }
+
       .control-panel {
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 24px;
+        right: 24px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         z-index: 1000;
       }
 
-      /* Unified style for both <button> and <a> tags */
       .btn {
-        padding: 12px 12px;
-        background-color: #333;
-        color: white;
-        border: none;
-        border-radius: 5px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--primary-color);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
         font-family: var(--font-main);
-        font-weight: bold;
+        font-weight: 500;
         cursor: pointer;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition:
-          background 0.2s,
-          transform 0.1s;
+        backdrop-filter: blur(8px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         align-items: center;
-        justify-content: center; /* Centers text in the link */
-        gap: 8px;
-        text-decoration: none; /* Removes underline from the link */
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
         font-size: 0.9em;
-        width: 182px; /* Fixed width so they match perfectly */
+        width: 180px;
         box-sizing: border-box;
       }
 
       .btn:hover {
-        background-color: #555;
-        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
       }
 
       .btn:active {
-        transform: translateY(1px);
+        transform: translateY(0);
       }
 
       .btn-download {
-        background-color: var(--accent-color);
+        background: var(--accent-gradient);
+        border: none;
+        color: #fff;
+        font-weight: 600;
       }
 
       .btn-download:hover {
-        background-color: #005555;
+        background: linear-gradient(135deg, #7dd3fc, #a5b4fc);
+        box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
       }
 
-      /* Header Section */
       header {
         display: flex;
         align-items: center;
-        /* border-bottom: 2px solid #eee; */
-        padding-bottom: 12px;
-        /* margin-bottom: 12px; */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 40px;
+        margin-bottom: 40px;
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 35px;
       }
 
       .profile-photo {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid #077;
+        padding: 4px;
+        background: var(--accent-gradient);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.5);
+      }
+
+      .profile-photo:hover {
+        transform: scale(1.05) rotate(-2deg);
       }
 
       .header-content {
@@ -112,257 +155,498 @@
       }
 
       h1 {
+        font-family: var(--font-heading);
         margin: 0;
-        font-size: 2.75em;
-        text-transform: uppercase;
-        letter-spacing: 8px;
+        font-size: 3.5em;
+        font-weight: 800;
+        letter-spacing: -1px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
       .job-title {
-        font-size: 1.2em;
-        color: var(--accent-color);
-        font-weight: bold;
-        margin-bottom: 10px;
+        font-family: var(--font-heading);
+        font-size: 1.4em;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-top: 5px;
+        margin-bottom: 15px;
         display: block;
-        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       .contact-info {
-        font-size: 0.9em;
+        font-size: 0.95em;
         color: var(--secondary-color);
         display: flex;
         flex-wrap: wrap;
-        /* justify-content: space-between; */
-        gap: 16px;
-        span {
-          margin: 0;
-          padding: 0;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .contact-info span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .contact-info a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .contact-info a:hover {
+        color: var(--accent-color);
+      }
+
+      section {
+        margin-bottom: 40px;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        a {
-          color: var(--secondary-color);
-          text-decoration: none;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      /* Section Styling */
-      section {
-        margin-bottom: 25px;
+      section:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      section:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      section:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      section:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      section:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      section:nth-child(7) {
+        animation-delay: 0.6s;
       }
 
       h2 {
-        font-size: 1.3em;
-        border-bottom: 2px solid var(--primary-color);
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-        text-transform: uppercase;
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 12px;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        display: inline-block;
+      }
+
+      h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 40px;
+        background: var(--accent-gradient);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+
+      section:hover h2::after {
+        width: 100%;
+      }
+
+      .job {
+        margin-bottom: 30px;
+        padding: 24px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .job:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.1);
       }
 
       h3 {
-        margin: 0 0 5px 0;
-        font-size: 1.1em;
+        margin: 0 0 8px 0;
+        font-size: 1.25em;
         color: var(--primary-color);
+        font-weight: 600;
       }
 
       h4 {
-        margin: 0 0 10px 0;
-        font-size: 0.95em;
-        color: var(--secondary-color);
-        font-weight: normal;
-        font-style: italic;
+        margin: 0 0 16px 0;
+        font-size: 1em;
+        color: var(--accent-color);
+        font-weight: 500;
       }
 
       .date {
         float: right;
-        font-weight: bold;
-        color: var(--accent-color);
-        font-size: 0.9em;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        color: var(--secondary-color);
+        font-size: 0.85em;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px 12px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
       }
 
       p {
         margin-top: 0;
+        color: var(--secondary-color);
       }
 
       ul {
         padding-left: 20px;
-        margin-top: 5px;
+        margin-top: 10px;
+        color: var(--secondary-color);
       }
 
       li {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
 
-      /* Skills Table / Grid */
+      li::marker {
+        color: var(--accent-color);
+      }
+
+      strong {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 10px;
+        gap: 15px;
       }
 
       .skill-item {
-        background: #f9f9f9;
-        padding: 6px 12px;
-        border-radius: 4px;
-        font-size: 0.8em;
-        border-left: 3px solid var(--accent-color);
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 0.95em;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--primary-color);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
       }
 
-      /* References Grid */
-      .references-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 10px;
-      }
-
-      .reference-card {
-        background: #fcfcfc;
-        padding: 12px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .reference-card h3 {
-        font-size: 1em;
-        margin-bottom: 2px;
-      }
-
-      .reference-role {
-        font-size: 0.8em;
-        color: var(--secondary-color);
-        display: block;
-        margin-bottom: 6px;
-        font-style: italic;
-        font-weight: bold;
-      }
-
-      .reference-email {
-        font-size: 0.9em;
+      .skill-item::before {
+        content: '▹';
         color: var(--accent-color);
-        text-decoration: none;
-        word-break: break-all;
+        margin-right: 8px;
+        font-size: 1.2em;
       }
 
-      /* Links Section */
+      .skill-item:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent-color);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.1);
+      }
+
       .links-list {
         display: flex;
-        gap: 50px;
+        gap: 30px;
         list-style: none;
         padding: 0;
+        flex-wrap: wrap;
+      }
+
+      .links-list li {
+        margin: 0;
       }
 
       .links-list a {
-        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary-color);
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .links-list a:hover {
+        background: var(--accent-gradient);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.3);
+        border-color: transparent;
       }
 
       .print-url {
         display: none;
       }
 
-      /* ========================================
-         PRINT SPECIFIC STYLES 
-         ======================================== */
       @media print {
         @page {
-          margin: 0.75in;
-          size: auto;
+          margin: 0.4in;
         }
-
-        /* HIDE THE BUTTONS WHEN PRINTING */
+        :root {
+          --bg-color: #ffffff;
+          --container-bg: #ffffff;
+          --primary-color: #111827;
+          --secondary-color: #334155;
+          --accent-color: #0284c7;
+        }
+        body {
+          background: white;
+          padding: 0;
+          font-size: 10pt;
+          line-height: 1.4;
+          color: var(--primary-color);
+        }
+        .resume-container {
+          box-shadow: none;
+          border: none;
+          padding: 0;
+          max-width: 100%;
+        }
+        .resume-container::before {
+          display: none;
+        }
         .control-panel {
           display: none !important;
         }
 
-        body {
-          font-size: 12pt;
-          background-color: white;
-          padding: 0;
-          margin: 0;
+        header {
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          /* border-bottom: 2px solid var(--accent-color); */
+          display: flex !important;
+          align-items: center !important;
+          gap: 25px !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
         }
-
-        .resume-container {
+        .profile-photo {
+          width: 120px !important;
+          height: 120px !important;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid var(--accent-color);
           box-shadow: none;
-          max-width: 100%;
-          width: 100%;
-          padding: 0;
-          margin: 0;
+          padding: 3px;
+          background: none;
+          display: block !important;
         }
-
-        .job,
-        .reference-card,
-        section {
-          break-inside: avoid;
-          page-break-inside: avoid;
+        .header-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: left !important;
         }
-
+        h1 {
+          font-size: 26pt;
+          background: none;
+          -webkit-text-fill-color: var(--primary-color);
+          color: var(--primary-color);
+          margin-bottom: 2px;
+          letter-spacing: 1px;
+        }
         .job-title {
-          font-size: 1.05em;
+          font-size: 14pt;
           margin-bottom: 8px;
+          color: var(--accent-color);
+          letter-spacing: normal;
         }
-
         .contact-info {
-          font-size: 0.6em;
-          justify-content: flex-start;
+          display: flex !important;
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          gap: 15px !important;
+          font-size: 10pt;
         }
 
-        a {
-          text-decoration: none;
+        section {
+          margin-bottom: 15px;
+          animation: none;
+          opacity: 1;
+        }
+        /* Specific page breaks for important sections */
+        .experience,
+        .education {
+          page-break-before: auto;
+        }
+
+        h2 {
+          font-size: 14pt;
+          margin-bottom: 10px;
+          padding-bottom: 4px;
+          border-bottom: 1px solid var(--secondary-color);
+          display: block;
+          color: var(--accent-color);
+        }
+        h2::after {
+          display: none;
+        }
+        h3 {
+          font-size: 11.5pt;
+          margin-bottom: 4px;
+          color: var(--primary-color);
+        }
+        h4 {
+          font-size: 10pt;
+          margin-bottom: 6px;
+          font-weight: 500;
+          color: var(--secondary-color);
+        }
+        .date {
+          float: right;
+          font-size: 10pt;
+          font-weight: 600;
+          background: rgba(2, 132, 199, 0.1);
+          padding: 2px 8px;
+          color: var(--accent-color);
+          border-radius: 4px;
+        }
+        p {
+          margin-bottom: 10px;
+          color: var(--secondary-color);
+        }
+        ul {
+          margin-top: 6px;
+          margin-bottom: 12px;
+          color: var(--secondary-color);
+          padding-left: 20px;
+        }
+        li {
+          margin-bottom: 4px;
+        }
+        li::marker {
           color: var(--accent-color);
         }
 
-        /* Show the text URLs in print */
-        .print-url {
-          display: block;
-          font-weight: normal;
-          font-size: 0.85em;
-          color: #555;
-          margin-top: 2px;
+        .job {
+          background: none;
+          border: none;
+          padding: 0;
+          margin-bottom: 12px;
+          break-inside: avoid;
+          page-break-inside: avoid;
+          transform: none !important;
         }
 
-        /* Stack the links vertically for print */
+        /* Grid for skills */
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+        }
+        .skill-item {
+          border: 1px solid #e2e8f0;
+          background: #f8fafc;
+          padding: 6px 10px;
+          margin: 0;
+          color: var(--primary-color);
+          font-size: 9pt;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          border-radius: 4px;
+        }
+        .skill-item::before {
+          content: '▹';
+          color: var(--accent-color);
+          margin-right: 6px;
+          display: inline-block;
+        }
+
         .links-list {
-          display: block !important;
+          display: flex;
+          flex-direction: column;
+          gap: 4px 20px;
+          margin: 0;
+          padding: 0;
+          flex-wrap: wrap;
         }
-
         .links-list li {
-          margin-bottom: 10px;
+          /* margin-bottom: 4px; */
+          display: flex;
+          align-items: center;
+        }
+        .links-list a {
+          background: none;
+          border: none;
+          padding: 0;
+          color: var(--accent-color);
+          display: inline;
+          font-size: 9.5pt;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .links-list a::after {
+          content: ': ';
+        }
+        .print-url {
+          display: inline;
+          margin-left: 4px;
+          font-size: 9.5pt;
+          color: var(--secondary-color);
         }
       }
 
-      /* Mobile Responsiveness */
-      @media (max-width: 600px) {
-        .resume-container {
-          padding: 30px;
+      @media (max-width: 768px) {
+        body {
+          padding: 20px 10px;
         }
-
+        .resume-container {
+          padding: 40px 25px;
+        }
         .control-panel {
           top: auto;
           bottom: 20px;
           right: 20px;
+          flex-direction: row;
         }
-
+        .btn {
+          width: auto;
+          font-size: 0.8em;
+          padding: 10px 15px;
+        }
         header {
           flex-direction: column;
           text-align: center;
+          gap: 20px;
+        }
+        .contact-info {
+          justify-content: center;
+          flex-direction: column;
+          gap: 10px;
         }
         .date {
           float: none;
-          display: block;
-          margin-bottom: 5px;
+          display: inline-block;
+          margin-bottom: 15px;
         }
-        .contact-info {
-          font-size: 0.7em;
-          justify-content: center;
-          flex-direction: column;
-        }
-        .links-list {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
+        h1 {
+          font-size: 2.8em;
         }
       }
     </style>
@@ -371,7 +655,7 @@
     <div class="control-panel">
       <button class="btn" onclick="window.print()">🖨️ Print</button>
       <a
-        href="Michael Zeta - Project Management Intern.pdf"
+        href="Michael Zeta, Full-Stack Web Developer.pdf"
         class="btn btn-download"
         download
       >
@@ -386,13 +670,9 @@
           alt="Michael Zeta"
           class="profile-photo"
         />
-
         <div class="header-content">
           <h1>Michael Zeta</h1>
-          <span class="job-title"
-            >Project Management & Creative Technology</span
-          >
-
+          <span class="job-title">Full-Stack Web Developer</span>
           <div class="contact-info">
             <span
               ><a href="tel:+19516621120" target="_blank"
@@ -404,7 +684,7 @@
                 >michael@a2zeta.com</a
               ></span
             >
-            <span>7200 Cumberland Pl, Rancho Cucamonga, CA 91739</span>
+            <span>Rancho Cucamonga, CA</span>
           </div>
         </div>
       </header>
@@ -412,13 +692,123 @@
       <section class="summary">
         <h2>Professional Summary</h2>
         <p>
-          High-achieving Business Administration & CIS student (3.9 GPA) with a
-          service-oriented leadership philosophy. Proven ability to design Agile
-          workflows, manage documentation, and utilize tools like ClickUp and
-          Gantt charts to track complex projects. Leverages a background in
-          education to break down complex technical requirements into actionable
-          steps for diverse teams, fostering collaboration and shared success.
+          Full-stack developer and CS-bound student specializing in the React
+          ecosystem. Proven track record of building, deploying, and maintaining
+          production-ready web applications for real business owners. Highly
+          proficient in shipping end-to-end features using
+          <strong>Next.js, TypeScript, Tailwind CSS, and Supabase</strong>.
+          Passionate about clean UI components, seamless API integrations, and
+          contributing to fast-moving, product-led startups.
         </p>
+      </section>
+
+      <section class="skills">
+        <h2>Technical Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-item">Next.js & React</div>
+          <div class="skill-item">TypeScript / JavaScript</div>
+          <div class="skill-item">Tailwind CSS</div>
+          <div class="skill-item">Supabase & PostgreSQL</div>
+          <div class="skill-item">REST API Integration</div>
+          <div class="skill-item">Technical SEO (JSON-LD)</div>
+          <div class="skill-item">Git / GitHub</div>
+          <div class="skill-item">Netlify & Vercel</div>
+          <div class="skill-item">Stripe Integration</div>
+          <div class="skill-item">UX/UI Component Design</div>
+          <div class="skill-item">CMS (Payload / Sanity)</div>
+          <div class="skill-item">Agile Methodologies</div>
+        </div>
+      </section>
+
+      <section class="projects">
+        <h2>Full-Stack Projects (Outside Coursework)</h2>
+
+        <div class="job">
+          <h3>The Second Messenger Web Platform</h3>
+          <h4>Independent Full-Stack Application</h4>
+          <ul>
+            <li>
+              Architected and built a highly performant, server-side rendered
+              website utilizing <strong>Next.js</strong> and
+              <strong>Tailwind CSS</strong> to manage a multimedia brand.
+            </li>
+            <li>
+              Configured a custom backend using <strong>Payload CMS</strong> and
+              integrated external databases for dynamic content delivery and
+              asset management.
+            </li>
+            <li>
+              Designed a responsive, modern UI/UX resulting in seamless media
+              playback and content discovery across all devices.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3>Rockstars of Tomorrow Digital Operations</h3>
+          <h4>B2B SaaS Integration & Web App</h4>
+          <ul>
+            <li>
+              Led the digital transformation of a brick-and-mortar business,
+              designing and deploying a responsive frontend using
+              <strong>Next.js</strong> and Netlify.
+            </li>
+            <li>
+              Built a custom eCommerce portal with full
+              <strong>Stripe API</strong> integration to handle summer camp
+              registrations, creating a fully automated, passive revenue stream.
+            </li>
+            <li>
+              Engineered complex API integrations to synchronize the frontend
+              with "Opus One" (third-party business logic software),
+              streamlining lead capture and client scheduling.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Development Experience</h2>
+
+        <div class="job">
+          <span class="date">Jun 2013 – PRESENT</span>
+          <h3>Founder & Lead Full-Stack Developer</h3>
+          <h4>A2Zeta Creative Design, Rancho Cucamonga, CA</h4>
+          <ul>
+            <li>
+              Architect custom web solutions for local businesses, translating
+              vague client requirements into functional, code-based reality
+              using modern JavaScript frameworks.
+            </li>
+            <li>
+              Build and refine frontend UI components, ensuring accessibility,
+              performance optimization, and cross-browser compatibility.
+            </li>
+            <li>
+              Manage the complete software development lifecycle (SDLC) from UI
+              wireframing to backend deployment, utilizing Agile methodologies
+              to ship real features on tight deadlines.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">Jun 2021 – Jan 2022</span>
+          <h3>Technical Project Lead (Contract)</h3>
+          <h4>Valiant Eagle, Inc., Los Angeles, CA (Hybrid)</h4>
+          <ul>
+            <li>
+              Designed a modular "assembly line" workflow for web development,
+              establishing clear hand-off protocols between UX design, frontend
+              development, and DevOps teams.
+            </li>
+            <li>
+              Audited existing technology stacks and provided strategic
+              documentation to leadership regarding the integration of modern
+              headless CMS and e-commerce solutions.
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section class="education">
@@ -428,215 +818,37 @@
           <span class="date">Expected: June 2027</span>
           <h3>Chaffey College, Rancho Cucamonga, CA</h3>
           <h4>
-            Business Administration with Computer Information Systems Emphasis
+            Computer Information Systems (Planned Transfer: CS at Cal Poly
+            Pomona)
           </h4>
           <ul>
             <li><strong>Cumulative GPA:</strong> 3.94 (Dean's List)</li>
             <li>
-              <strong>Relevant Coursework: </strong>Financial & Managerial
-              Accounting, Micro & Macroeconomics, Prog Concepts & Methodology,
-              Fund/Small Group Communication, Music Theory I.
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <span class="date">2011</span>
-          <h3>Miracosta College, Oceanside, CA</h3>
-          <h4>Certification in Audio Engineering</h4>
-        </div>
-      </section>
-
-      <section class="leadership">
-        <h2>Leadership & Honors</h2>
-        <div class="job">
-          <ul>
-            <li>
-              <strong>Vice President</strong>, Chaffey Recording Arts Club: Lead
-              weekly meetings and design technical workshops (Home Studio Setup,
-              Songwriting) for the student body.
+              <strong>Relevant Coursework:</strong> Intro to Computer
+              Programming, Prog Concepts & Methodology, Calculus I.
             </li>
             <li>
-              <strong>Member</strong>, Phi Theta Kappa Honor Society (Academic
-              Excellence).
+              <strong>Leadership:</strong> Phi Theta Kappa Honors Society
+              Member.
             </li>
           </ul>
         </div>
       </section>
-
-      <section class="experience">
-        <h2>Employment History</h2>
-
-        <div class="job">
-          <span class="date">Mar 2016 – Sep 2024</span>
-          <h3>Project Manager & Operations Lead</h3>
-          <h4>Rockstars of Tomorrow, La Verne, CA</h4>
-          <ul>
-            <li>
-              <strong>Commercial Studio Workflow:</strong> Designed and managed
-              the recording studio business unit, configuring
-              <strong>ClickUp</strong>
-              to automate project scoping, hourly billing, and engineering
-              deliverables for client sessions.
-            </li>
-            <li>
-              <strong>Retention & Mentorship:</strong> Achieved the highest
-              student retention rate in company history by translating complex
-              musical concepts into accessible goals, a skill now applied to
-              stakeholder communication.
-            </li>
-            <li>
-              <strong>Growth & Automation:</strong> Implemented
-              <strong>API integrations</strong>
-              for lead tracking and led a reputation management campaign that
-              grew 5-star reviews by 2000% and social following from 20 to
-              2,000.
-            </li>
-            <li>
-              <strong>Systems Integration:</strong> Led the integration of "Opus
-              One" business logic into the company website and built a custom
-              <strong>Stripe</strong> portal for Summer Camps, creating a
-              passive revenue stream.
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <span class="date">Jun 2021 – Jan 2022</span>
-          <h3>Technical Project Manager (Contract)</h3>
-          <h4>Valiant Eagle, Inc., Los Angeles, CA (Hybrid)</h4>
-          <p>
-            Recruited to design and implement project management infrastructure
-            for a network of subsidiary websites.
-          </p>
-          <ul>
-            <li>
-              <strong>Workflow Architecture: </strong>Designed a modular
-              "assembly line" workflow for web development projects, defining
-              clear hand-off protocols between design, dev, and DevOps.
-            </li>
-            <li>
-              <strong>PM Software Implementation: </strong>Configured and
-              deployed <strong>ClickUp</strong> as the central project hub,
-              creating custom Kanban boards and status templates to track task
-              completion.
-            </li>
-            <li>
-              <strong>Talent Acquisition: </strong>Screened technical candidates
-              and conducted initial interviews to assist leadership in defining
-              competency standards for future engineering hires.
-            </li>
-            <li>
-              <strong>Strategic Planning: </strong>Audited existing technology
-              stacks and provided documentation regarding the feasibility of
-              Web3 and e-commerce initiatives.
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <span class="date">Jan 2020 – PRESENT</span>
-          <h3>Music Producer & Brand Manager</h3>
-          <h4>The Second Messenger, Rancho Cucamonga, CA</h4>
-          <ul>
-            <li>
-              <strong>Content Strategy:</strong> Produced 30+ multimedia assets
-              (music videos, lyric videos, social content), managing the entire
-              creative pipeline from storyboard to final render.
-            </li>
-            <li>
-              <strong>Rights & Asset Management:</strong> Executed complex
-              rights management (ASCAP/BMI licensing, ISRC coding) ensuring 100%
-              legal compliance for all global assets.
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <span class="date">Jun 2013 – PRESENT</span>
-          <h3>Founder & Lead Technologist</h3>
-          <h4>A2Zeta Creative Design, Rancho Cucamonga, CA</h4>
-          <ul>
-            <li>
-              <strong>Full Stack Development:</strong> Architect custom web
-              solutions using <strong>React, Next.js, and Node.js</strong>,
-              utilizing Agile methodologies to manage the software development
-              lifecycle.
-            </li>
-            <li>
-              <strong>Full-Cycle Operations:</strong> Manage the complete
-              business lifecycle from lead generation and contract negotiation
-              to technical execution and invoicing ("A to Z" service model).
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="skills">
-        <h2>Core Competencies</h2>
-        <div class="skills-grid">
-          <div class="skill-item">Project Management</div>
-          <div class="skill-item">Agile & Scrum Methodologies</div>
-          <div class="skill-item">ClickUp (Certified)</div>
-          <div class="skill-item">Full Stack Dev (React/Node)</div>
-          <div class="skill-item">Workflow Automation</div>
-          <div class="skill-item">Content Management Systems</div>
-          <div class="skill-item">SEO & Metadata (JSON-LD)</div>
-          <div class="skill-item">API Integrations</div>
-          <div class="skill-item">Music Publishing</div>
-          <div class="skill-item">Audio Engineering</div>
-          <div class="skill-item">Public Speaking</div>
-          <div class="skill-item">Graphic Design</div>
-        </div>
-      </section>
-
-      <!-- <section class="references">
-        <h2>References</h2>
-        <div class="references-grid">
-          <div class="reference-card">
-            <h3>Anthony Lauro</h3>
-            <span class="reference-role"
-              >Music Theory Professor - Chaffey College</span
-            >
-            <a href="mailto:anthony.lauro@chaffey.edu" class="reference-email"
-              >anthony.lauro@chaffey.edu</a
-            >
-          </div>
-          <div class="reference-card">
-            <h3>Garrett Kenehan</h3>
-            <span class="reference-role"
-              >Recording Arts Professor - Chaffey College</span
-            >
-            <a href="mailto:garrett.kenehan@chaffey.edu" class="reference-email"
-              >garrett.kenehan@chaffey.edu</a
-            >
-          </div>
-          <div class="reference-card">
-            <h3>Robert Gonzales</h3>
-            <span class="reference-role">Owner - Rockstars of Tomorrow</span>
-            <a
-              href="mailto:robert@rockstarsoftomorrow.com"
-              class="reference-email"
-              >robert@rockstarsoftomorrow.com</a
-            >
-          </div>
-        </div>
-      </section> -->
 
       <section class="links">
         <h2>Links</h2>
         <ul class="links-list">
           <li>
-            <a href="https://www.linkedin.com/in/codenamezeta/">LinkedIn</a>
-            <span class="print-url">linkedin.com/in/codenamezeta</span>
-          </li>
-          <li>
-            <a href="https://a2zeta.com">Web Design Portfolio</a>
+            <a href="https://a2zeta.com">Web Portfolio</a>
             <span class="print-url">a2zeta.com</span>
           </li>
           <li>
-            <a href="https://thesecondmessenger.com">Music Portfolio</a>
-            <span class="print-url">thesecondmessenger.com</span>
+            <a href="https://github.com/codenamezeta">GitHub Profile</a>
+            <span class="print-url">github.com/codenamezeta</span>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/codenamezeta/">LinkedIn</a>
+            <span class="print-url">linkedin.com/in/codenamezeta</span>
           </li>
         </ul>
       </section>

@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Zeta - PBA Treasurer Candidate</title>
+    <style>
+      :root {
+        --primary-color: #2c3e50; /* Slightly darker, more corporate blue-grey */
+        --secondary-color: #546e7a;
+        --accent-color: #007777;
+        --bg-color: #e0e0e0;
+        --container-bg: #ffffff;
+        --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--bg-color);
+        color: var(--primary-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .resume-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--container-bg);
+        padding: 60px 80px;
+        box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.25);
+        position: relative;
+      }
+
+      /* ========================================
+         CONTROL PANEL
+         ======================================== */
+      .control-panel {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .btn {
+        padding: 12px 12px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-family: var(--font-main);
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        font-size: 0.9em;
+        width: 182px;
+        box-sizing: border-box;
+      }
+
+      .btn:hover {
+        background-color: #555;
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn-download {
+        background-color: var(--accent-color);
+      }
+
+      .btn-download:hover {
+        background-color: #005555;
+      }
+
+      /* Header Section */
+      header {
+        display: flex;
+        align-items: center;
+        padding-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent-color);
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.75em;
+        text-transform: uppercase;
+        letter-spacing: 4px; /* Slightly tightened for professional look */
+      }
+
+      .job-title {
+        font-size: 1.3em;
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+      }
+
+      .contact-info {
+        font-size: 0.9em;
+        color: var(--secondary-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        span {
+          margin: 0;
+          padding: 0;
+        }
+        a {
+          color: var(--secondary-color);
+          text-decoration: none;
+        }
+      }
+
+      /* Section Styling */
+      section {
+        margin-bottom: 25px;
+      }
+
+      h2 {
+        font-size: 1.3em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+        color: var(--primary-color);
+      }
+
+      h4 {
+        margin: 0 0 10px 0;
+        font-size: 0.95em;
+        color: var(--secondary-color);
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      .date {
+        float: right;
+        font-weight: bold;
+        color: var(--accent-color);
+        font-size: 0.9em;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+      }
+
+      .skill-item {
+        background: #f4f6f7;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        border-left: 3px solid var(--accent-color);
+        color: #333;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .skill-category {
+        grid-column: 1 / -1;
+        font-weight: bold;
+        font-size: 0.9em;
+        margin-top: 8px;
+        margin-bottom: 4px;
+        color: var(--secondary-color);
+        text-transform: uppercase;
+      }
+
+      /* Links Section */
+      .links-list {
+        display: flex;
+        gap: 50px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .links-list a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .print-url {
+        display: none;
+      }
+
+      /* ========================================
+         PRINT SPECIFIC STYLES 
+         ======================================== */
+      @media print {
+        @page {
+          margin: 0.5in 0.75in;
+          size: auto;
+        }
+
+        .control-panel {
+          display: none !important;
+        }
+
+        body {
+          font-size: 11pt; /* Slightly smaller for density */
+          background-color: white;
+          padding: 0;
+          margin: 0;
+        }
+
+        .resume-container {
+          box-shadow: none;
+          max-width: 100%;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+
+        .job {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        h1 {
+          font-size: 2.2em;
+        }
+
+        .job-title {
+          font-size: 1.1em;
+          margin-bottom: 8px;
+        }
+
+        h2 {
+          margin-top: 15px;
+          margin-bottom: 10px;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--accent-color);
+        }
+
+        .print-url {
+          display: block;
+          font-weight: normal;
+          font-size: 0.85em;
+          color: #555;
+          margin-top: 2px;
+        }
+
+        .links-list {
+          flex-direction: flex-row;
+        }
+
+        .links-list li {
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 600px) {
+        .resume-container {
+          padding: 30px;
+        }
+
+        .control-panel {
+          top: auto;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .date {
+          float: none;
+          display: block;
+          margin-bottom: 5px;
+        }
+        .contact-info {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="control-panel">
+      <button class="btn" onclick="window.print()">🖨️ Print Resume</button>
+    </div>
+
+    <main class="resume-container">
+      <header>
+        <img
+          src="michael-zeta-avatar-01.jpg"
+          alt="Michael Zeta"
+          class="profile-photo"
+        />
+
+        <div class="header-content">
+          <h1>Michael Zeta</h1>
+          <span class="job-title"
+            >Candidate for Treasurer | Business Admin & CIS</span
+          >
+
+          <div class="contact-info">
+            <span
+              ><a href="tel:+19516621120" target="_blank"
+                >(951) 662-1120</a
+              ></span
+            >
+            <span
+              ><a href="mailto:michael@a2zeta.com" target="_blank"
+                >michael@a2zeta.com</a
+              ></span
+            >
+            <span>Rancho Cucamonga, CA</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary">
+        <h2>Statement of Qualification</h2>
+        <p>
+          Business Administration and Computer Information Systems student with
+          a 3.9 GPA and practical experience in financial operations. Combining
+          academic coursework in
+          <strong>Financial & Managerial Accounting</strong> with real-world
+          experience managing invoicing, contracts, and budgets for small
+          businesses. Seeking the Treasurer position to ensure the PBA remains
+          compliant and chartered, while leveraging technical skills to
+          modernize the club's web presence and operations.
+        </p>
+      </section>
+
+      <section class="education">
+        <h2>Education</h2>
+
+        <div class="job">
+          <span class="date">Expected: June 2027</span>
+          <h3>Chaffey College, Rancho Cucamonga, CA</h3>
+          <h4>
+            Business Administration with Computer Information Systems Emphasis
+          </h4>
+          <ul>
+            <li><strong>Cumulative GPA:</strong> 3.94</li>
+            <li>
+              <strong>Accounting Coursework: </strong>
+              <strong style="color: var(--accent-color)"
+                >Financial Accounting (Completed), Managerial Accounting (In
+                Progress).</strong
+              >
+            </li>
+            <li><strong>Transfer Goal:</strong> Cal Poly Pomona (CIS)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Financial & Business Experience</h2>
+
+        <div class="job">
+          <span class="date">Jun 2013 – PRESENT</span>
+          <h3>Owner & Operations Manager</h3>
+          <h4>A2Zeta Creative Design (Freelance)</h4>
+          <p>
+            <em
+              >Founded and manage a design & tech consultancy serving small
+              business clients.</em
+            >
+          </p>
+          <ul>
+            <li>
+              <strong>Financial Management:</strong> Handle all aspects of
+              business administration including contract negotiation, client
+              invoicing, accounts receivable, and expense tracking.
+            </li>
+            <li>
+              <strong>Service Delivery:</strong> Deliver custom web solutions
+              (React/Next.js) on strict timelines and budgets.
+              <em>(Proposed Value Add: Building a dedicated PBA website).</em>
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">Mar 2016 – Sep 2024</span>
+          <h3>Operations Lead & Instructor</h3>
+          <h4>Rockstars of Tomorrow, La Verne, CA</h4>
+          <ul>
+            <li>
+              <strong>Billing & Invoicing:</strong> Managed scheduling and
+              billing for a roster of students using "My Music Staff" platform,
+              ensuring accurate invoicing and payment tracking.
+            </li>
+            <li>
+              <strong>Workflow Automation:</strong> Configured
+              <strong>ClickUp</strong> to automate project scoping and hourly
+              billing for the commercial recording studio.
+            </li>
+            <li>
+              <strong>Revenue Generation:</strong> Built a custom Stripe portal
+              for Summer Camps, creating a streamlined passive revenue stream
+              for the business.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="date">Jan 2020 – PRESENT</span>
+          <h3>Production Manager</h3>
+          <h4>The Second Messenger (Media Production)</h4>
+          <ul>
+            <li>
+              <strong>Budget Management:</strong> Allocate production budgets
+              across marketing, software licensing, and equipment to maximize
+              ROI on creative assets.
+            </li>
+            <li>
+              <strong>Asset Management:</strong> Manage legal compliance for
+              intellectual property, including ASCAP/BMI licensing and global
+              distribution rights.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="leadership">
+        <h2>Leadership</h2>
+        <div class="job">
+          <ul>
+            <li>
+              <strong>Vice President</strong>, Chaffey Recording Arts Club: Lead
+              weekly meetings and design technical workshops.
+            </li>
+            <li>
+              <strong>Member</strong>, Phi Theta Kappa Honor Society (Academic
+              Excellence).
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="skills">
+        <h2>Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">Financial & Administrative</div>
+          <div class="skill-item">Financial Accounting</div>
+          <div class="skill-item">Managerial Accounting</div>
+          <div class="skill-item">Invoicing & Billing</div>
+          <div class="skill-item">Contract Negotiation</div>
+          <div class="skill-item">Budgeting</div>
+
+          <div class="skill-category">Technical & Value Add</div>
+          <div class="skill-item">Web Development (React/Next.js)</div>
+          <div class="skill-item">ClickUp (Certified)</div>
+          <div class="skill-item">Workflow Automation</div>
+          <div class="skill-item">Excel / Spreadsheets</div>
+        </div>
+      </section>
+
+      <section class="links">
+        <h2>Links</h2>
+        <ul class="links-list">
+          <li>
+            <a href="https://www.linkedin.com/in/codenamezeta/">LinkedIn</a>
+            <span class="print-url">linkedin.com/in/codenamezeta</span>
+          </li>
+          <li>
+            <a href="https://a2zeta.com">A2Zeta Business Site</a>
+            <span class="print-url">a2zeta.com</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
